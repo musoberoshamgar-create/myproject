@@ -9,11 +9,11 @@ ALLOWED_HOSTS = ["*"]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tabbycat',
-        'USER': 'tabbycat',
-        'PASSWORD': 'tabbycat',
-        'HOST': 'db',
-        'PORT': 5432, # Non-standard to prevent collisions,
+        'NAME': os.environ.get('POSTGRES_DB', 'tabbycat'),
+        'USER': os.environ.get('POSTGRES_USER', 'tabbycat'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
+        'HOST': os.environ.get('POSTGRES_HOST', 'db'),
+        'PORT': int(os.environ.get('POSTGRES_PORT', '5432')),
     }
 }
 
