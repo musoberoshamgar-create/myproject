@@ -36,3 +36,5 @@ RUN npm run build
 
 # Collect static files
 RUN python ./tabbycat/manage.py collectstatic --noinput -v 0
+
+CMD python ./tabbycat/manage.py runserver 0.0.0.0:$PORT
